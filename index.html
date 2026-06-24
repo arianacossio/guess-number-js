@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Adivina el Número</title>
+  <title>Adivina el Número 🌅</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -13,14 +13,16 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-      color: #eee;
+      background: linear-gradient(135deg, #3a1c71, #d76d77, #ffaf7b);
+      color: #fff;
       padding: 20px;
     }
 
     .game-card {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(233, 69, 96, 0.3);
+      background: rgba(45, 22, 50, 0.45);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 209, 102, 0.4);
       border-radius: 20px;
       padding: 40px 30px;
       max-width: 420px;
@@ -31,13 +33,14 @@
     }
 
     h1 {
-      color: #e94560;
+      color: #ffd166;
       font-size: 1.8rem;
       margin-bottom: 8px;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     }
 
     .subtitle {
-      color: #aaa;
+      color: #ffe8d6;
       margin-bottom: 24px;
     }
 
@@ -53,16 +56,16 @@
       font-size: 18px;
       width: 100px;
       text-align: center;
-      border: 2px solid rgba(233, 69, 96, 0.4);
+      border: 2px solid rgba(255, 111, 97, 0.5);
       border-radius: 12px;
-      background: rgba(255, 255, 255, 0.05);
-      color: #eee;
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
       outline: none;
       transition: border-color 0.3s, box-shadow 0.3s;
     }
     input:focus {
-      border-color: #e94560;
-      box-shadow: 0 0 12px rgba(233, 69, 96, 0.3);
+      border-color: #ff6f61;
+      box-shadow: 0 0 12px rgba(255, 111, 97, 0.5);
     }
     /* Ocultar flechas del input numérico */
     input::-webkit-inner-spin-button,
@@ -72,7 +75,7 @@
     button {
       padding: 12px 24px;
       font-size: 18px;
-      background-color: #e94560;
+      background-color: #ff6f61;
       color: white;
       border: none;
       border-radius: 12px;
@@ -80,7 +83,7 @@
       transition: transform 0.2s, background-color 0.3s;
     }
     button:hover {
-      background-color: #d63d56;
+      background-color: #ff5a4d;
       transform: translateY(-2px);
     }
     button:active { transform: translateY(1px); }
@@ -97,15 +100,29 @@
       transition: font-size 0.3s;
     }
 
-    #historial {
-      margin-top: 20px;
+    #contador {
+      color: #ffe8d6;
+      font-size: 15px;
+    }
+
+    #mejorPuntaje {
+      color: #ffd166;
       font-size: 14px;
-      color: #aaa;
+      margin-top: 4px;
+    }
+
+    #historial {
+      margin-top: 16px;
+      font-size: 14px;
+      color: #ffe8d6;
     }
 
     #btnReiniciar {
-      background-color: #0f3460;
+      background-color: #d35400;
       margin-top: 12px;
+    }
+    #btnReiniciar:hover {
+      background-color: #b8410f;
     }
 
     @media (max-width: 480px) {
@@ -118,7 +135,7 @@
 </head>
 <body>
   <div class="game-card" id="game-card">
-    <h1>🎯 Adivina el Número</h1>
+    <h1>🌅 Adivina el Número</h1>
     <p class="subtitle">Estoy pensando en un número del 1 al 100...</p>
 
     <div class="controls">
@@ -127,7 +144,8 @@
     </div>
 
     <p id="mensaje"></p>
-    <p id="contador">Intentos: 0</p>
+    <p id="contador">Intentos: 0 / 10</p>
+    <p id="mejorPuntaje">Mejor puntaje: -</p>
     <p id="historial">Historial: </p>
 
     <button id="btnReiniciar" style="display: none;">
